@@ -25,11 +25,11 @@ class Stats {
 
     socialize(){
         this.social += Math.floor(Math.random() * (this.confidence + this.proficiency) * 0.5)
-        this.confidence += Math.floor(Math.random() * this.social * 0.1)
+        this.confidence += Math.floor(Math.random() * this.social)
         if(Math.random() > 0.5){
-            this.popularity += Math.floor(Math.random() * this.social* 0.1)
-            this.kindness += Math.floor(Math.random() * this.social * 0.1)
-            this.charisma += Math.floor(Math.random() * this.kindness * 0.1)
+            this.popularity += Math.floor(Math.random() * this.social)
+            this.kindness += Math.floor(Math.random() * this.social)
+            this.charisma += Math.floor(Math.random() * this.kindness)
         }
     }
 
@@ -90,5 +90,5 @@ function update(){
     document.getElementById('attack').innerHTML = player.stats.attack
     document.getElementById('defense').innerHTML = player.stats.defense
     // document.getElementById('stats').innerHTML = player.stats.toString();
-    document.getElementById('sidestats').innerHTML = player.stats.getStats();
+    document.getElementById('sidestats').innerHTML = player.stats.getStats().join('<br/>');
 }
